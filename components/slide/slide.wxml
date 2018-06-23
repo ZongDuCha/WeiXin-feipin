@@ -1,0 +1,16 @@
+<!--components/slide/slide.wxml -->
+<view class='swiper-container' wx:if="{{img.length}}">
+    <view class='close' bindtap='close'>X</view>
+    <swiper 
+        indicator-dots="true"
+        indicator-color="#ddd"
+        indicator-active-color="#4BCE4A"
+        class='swiper-wrap' bindtap='close'>
+
+        <block wx:key="*this">
+            <swiper-item class="swiper-item" wx:for="{{img}}" wx:key="index" wx:for-item="src">
+                <image src='{{src}}' mode="aspectFit" class='img' />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

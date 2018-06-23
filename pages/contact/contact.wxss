@@ -1,0 +1,15 @@
+/* pages/contact/contact.wxss */
+.logo{
+    text-align: center;
+}
+.logo image{
+    margin:30px auto;
+    display: inline-block;
+}
+
+.logo-tx{
+    width: 70%;margin:10px auto;
+    line-height: 20px;
+    color: rgba(136, 136, 136, 1);
+    font-size: 14px;
+}

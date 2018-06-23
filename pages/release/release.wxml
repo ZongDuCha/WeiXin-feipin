@@ -1,0 +1,88 @@
+<!--pages/release/release.wxml-->
+<view class='add-img'>
+
+    <image class='optImg' src='../../img/optImg.png' wx:if="{{!addImg.length}}" bindtap='addImg'/>
+
+    <view class='img-list' 
+        wx:for="{{addImg}}" 
+        wx:for-item="src"
+        wx:key="id"
+        wx:for-index="id" >
+        <image src='{{src}}' mode="aspectFit" />
+        <text bindtap='delImg' data-src="{{src}}">X</text>
+    </view>
+
+    <view class='img-list' wx:if="{{!!addImg.length}}" bindtap='addImg'>
+        <image src='../../img/optImg.png' mode="aspectFit" />
+    </view>
+</view>
+
+<view class='map-info'>
+    <textarea placeholder='详细地址' value='{{map}}' bindinput="setValue" data-type="0"/>
+    <view class='take' bindtap='getMap'>
+        获取 <text>地址</text>
+    </view>
+</view>
+
+<view class='rel-info'>
+    <view class='info-list'>
+        <text>手机电话：</text>
+        <input type='num' bindinput="setValue" data-type="1"></input>
+    </view>
+
+    <view class='info-list'>
+        <text>姓　　名：</text>
+        <input type='num' bindinput="setValue" data-type="2"></input>
+    </view>
+
+    <view class='info-list'>
+        <text>回收地区：</text>
+        <picker 
+            mode="region" 
+            bindchange="bindRegionChange" 
+            value="{{region}}" 
+            custom-item="{{customItem}}">
+            <view class="picker">
+            {{region[0]}}
+
+            {{ !!region[0] ? ' - ' : '　　　　　　　　' }}
+
+            {{region[1]}}
+
+            {{ !!region[1] ? ' - ' : '　　　　　　　　' }}
+
+            {{region[2]}}
+            </view>
+        </picker>
+    </view>
+
+    <view class='info-list'>
+        <textarea placeholder='描述废品情况，让回收者更方便了解' bindinput="setValue" data-type="3"></textarea>
+    </view>
+</view>
+
+
+<button class='push' bindtap='push'>确认发布</button>
+
+
+<!-- 成功  -->
+<view class='suc-container' wx:if="{{isSuc}}">
+    <view class='suc-wrap'>
+                    <view class='suc-header'>
+                        发布成功...
+                    </view>
+
+                    <view class='suc-oper'>
+                        <view class='oper-list' bindtap='back'>返回</view>
+                        <view class='oper-list' bindtap='seePro'>查看</view>
+                    </view>
+    </view>
+</view>
+
+
+<!-- 信息弹窗 -->
+<view class='mes-container' wx:if="{{isShow}}" bindtap='mesClose'>
+    <view class='mes-wrap err' >
+        {{mesTx}}
+    </view>
+</view>

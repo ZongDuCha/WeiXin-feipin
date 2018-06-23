@@ -1,0 +1,35 @@
+<!--pages/user/user.wxml-->
+
+<login wx:if="{{isShow}}"/>
+<view class='user-header'>
+    <view class='user-wrap'>
+        <view class='user-float'>
+            <image src='{{userInfo.avatarUrl}}'></image>
+            <view class='user-tx'>{{userInfo.nickName}}</view>
+        </view>
+    </view>
+</view>
+
+
+<view class='user-item'>
+    <view class='view-item'>
+        标题暂定
+    </view>
+
+    <view class='user-nav'>
+        <navigator url='../start/start?type=0' class='user-list'>
+            <image src='../../img/raw_1527951925.png'></image>
+            <text>我的下单</text>
+        </navigator>
+
+        <navigator  url='../start/start?type=1' class='user-list'>
+            <image src='../../img/raw_1527951928.png'></image>
+            <text>我的收藏</text>
+        </navigator>
+
+        <navigator url='../contact/contact' class='user-list'>
+            <image src='../../img/raw_1527951927.png'></image>
+            <text>联系客服</text>
+        </navigator>
+    </view>
+</view>

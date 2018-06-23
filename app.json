@@ -1,0 +1,46 @@
+{
+    "pages": [
+        "pages/user/user",
+        "pages/proInfo/proInfo",
+        "pages/collect/collect",
+        "pages/shop/shop",
+        "pages/release/release",
+        "pages/index/index",
+        "pages/start/start",
+        "pages/contact/contact",
+        "components/login/login",
+        "pages/logs/logs",
+        "components/slide/slide"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#4BCE4A",
+        "navigationBarTitleText": "爱收哥",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "color": "#4BCE4A",
+        "selectedColor": "#E51C23",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首 页",
+                "iconPath": "img/tabbar-1.png",
+                "selectedIconPath": "img/tabbar-1c.png"
+            },
+            {
+                "pagePath": "pages/collect/collect",
+                "text": "列 表",
+                "iconPath": "img/tabbar-2.png",
+                "selectedIconPath": "img/tabbar-2c.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "个 人",
+                "iconPath": "img/tabbar-3.png",
+                "selectedIconPath": "img/tabbar-3c.png"
+            }
+        ]
+    }
+}

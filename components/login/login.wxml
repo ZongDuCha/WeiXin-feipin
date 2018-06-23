@@ -1,0 +1,9 @@
+<view class='login-wrap' wx:if="{{isShow}}">
+    <button 
+        class='login-button' 
+        open-type="getUserInfo" 
+        lang="zh_CN" 
+        bindgetuserinfo="onGotUserInfo">
+        同意安全登录
+    </button>
+</view>

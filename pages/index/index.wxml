@@ -1,0 +1,47 @@
+<view>
+    <login wx:if='{{isShow}}'/>
+
+    <view class='index-header' bindtap='getMap'>
+        <image src='../../img/48-Map.png' />
+        <view class='index-header-map' class='index-map'>
+            {{index_map}}
+        </view>
+    </view>
+
+    <swiper 
+        indicator-dots="true" 
+        autoplay="true" 
+        duration="300" 
+        bindchange="listenSwiper" >
+        <swiper-item>
+            <view style="background: red; height: 150px">
+                <view>banner文字1</view>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view style="background: green; height: 150px">
+                <view>banner文字2</view>
+            </view>
+        </swiper-item>
+            <swiper-item>
+            <view style="background: blue; height: 150px">
+                <view>banner文字3</view>
+            </view>
+        </swiper-item>    
+    </swiper>
+
+    <view class='item'>
+        <view class='item-list' bindtap='toCollect'>
+            <image src='../../img/raw_1527689726.png' />
+            <text>我是回收者</text>
+        </view>
+        <view class='item-list' bindtap='toRelease'>
+            <image src='../../img/raw_1527689776.png' />
+            <text>我要下单</text>
+        </view>
+        <view class='item-list' bindtap='toShop'>
+            <image src='../../img/rarw_123wdeq.png' />
+            <text>我的店铺</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,35 @@
+<view class='collect-wrap'>
+    
+    <!-- 数据渲染|| -->
+    <view class='col-warp-list' wx:for='{{proItem}}' wx:for-item='item' wx:key="index">
+        <navigator url='../proInfo/proInfo?id={{item.id}}' class='list-title'>
+            {{item.docText}}
+        </navigator>
+
+        <swiper 
+            indicator-dots="true" 
+            duration="300" 
+            bindchange="listenSwiper"
+            class='list-imgWrap'
+            indicator-active-color="#4BCE4A"
+            display-multiple-items="{{item.img.length == 1 ? '1' : ( item.img.length == 2 ? '2' : (item.img.length >=3 ? '3' : ''))}}" >
+
+            <swiper-item class='imgWrap-list' wx:for="{{item.img}}" wx:for-item="img" wx:key="i">
+                <image src='../..{{img}}' mode="aspectFit"></image>
+            </swiper-item>
+
+        </swiper>
+
+        <view class='user-map'>
+            <image src='../../img/203-Mapc.png' />
+            {{item.map}}
+        </view>
+    </view>
+
+</view>
+
+<view class='collect-end'>
+    <view class='span'></view>
+    <view class='end-text'>已经到底了.</view>
+    <view class='span'></view>
+</view>

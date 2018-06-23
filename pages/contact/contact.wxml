@@ -1,0 +1,10 @@
+<!--pages/contact/contact.wxml-->
+<view class='logo'>
+    <image src='../../img/raw_1527996668.png' mode="aspectFit"></image>
+</view>
+
+<view class='logo-tx'>秉承爱护坏境，能源回收，制作这款小程序，希望我们居住的地球能够一直健健康康</view>
+
+<view class='logo-tx'>
+    微信号：13168934172
+</view>

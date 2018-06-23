@@ -1,0 +1,136 @@
+/* pages/proInfo/proInfo.wxss */
+page{
+    background: #F6F6F7;
+}
+.pro-title{
+    line-height:25px;
+    color:rgba(85, 83, 83, 1);
+    font-size:17px;
+    text-align:left;
+    font-family:Microsoft Yahei;
+    font-weight:600;
+    padding:5px;
+    background: #fff;   
+    border-bottom:1px solid #f3f3f3;
+}
+.pro-item{
+    padding:8px 5px;background: #fff;
+}
+.pro-item:after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.pro-time{
+    line-height: 20px;
+    color: rgba(123, 121, 121, 1);
+    font-size: 13px;
+    float:left;
+}
+.pro-phone{
+    float:right;
+    line-height: 20px;
+    color: rgba(75, 206, 74, 1);
+    font-size: 14px;
+    text-align: right;
+    letter-spacing: .5px;
+    font-weight: bold;
+}
+
+.pro-user{
+    margin-top: 15px;
+    background: #fff;
+    padding:10px 15px;
+}
+
+.user-img{
+    height: 30px;
+    line-height: 20px;
+    color: rgba(16, 16, 16, 1);
+    font-size: 15px;
+    overflow: hidden;
+}
+.user-img image{
+    width:30px;height:30px;border-radius: 50%;
+    vertical-align: middle;
+}
+.pro-map{
+    height: 25px;
+    line-height: 20px;
+    color: rgba(99, 128, 234, 1);
+    font-size: 14px;
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.pro-map image{
+    width:15px;
+    height:20px;
+    vertical-align:sub;
+    float:left;
+    margin-right:8px;
+    margin-left:6px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.pro-img{
+    background: #fff;
+    margin-top:15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pro-img-list{
+    width:50%;
+    padding:10px;
+    box-sizing:border-box;
+}
+.pro-img-list image{
+    max-width:100%;
+    height: 190px;
+}
+.pro-bt{
+    line-height: 22px;
+    color: rgba(179, 182, 189, 1);
+    font-size: 13px;
+    text-align: center;
+    display: block;
+    margin:10px auto;
+}
+.pro-oper{
+    position:fixed;
+    background:#fff;
+    bottom:0;
+    left:0;
+    width:100%;
+    display:flex;
+    box-shadow:0 -2px 3px rgba(0,0,0,.2);
+}
+.pro-back,.pro-star,.pro-contact{
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    padding: 15px 0;
+}
+.pro-back{
+    flex:.3;
+    color:rgba(229, 28, 35, 1);
+    border-right: 1px solid #ddd;
+}
+.pro-star{
+    flex:.4;
+    color:#4BCE4A;
+}
+.pro-star image{
+    width:20px;
+    height:20px;
+    vertical-align:sub;
+}
+.pro-contact{
+    flex:.7;
+    background: #2CB8F0;
+    color:#fff;
+}

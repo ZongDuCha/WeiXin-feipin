@@ -1,0 +1,64 @@
+<!--pages/shop/shop.wxml-->
+<view class='shop'>
+    <image src='{{fm}}' mode="aspectFit" class='fengmian' bindtap='fm' />
+
+    <view class='shopName'>
+        <input placeholder='输入店铺名字' placeholder-class='input' disabled='{{isEdit}}' value='{{name}}' bindinput='Name' ></input>
+        <view class='name-list' >：店铺名字</view>
+    </view>
+
+    <view class='shopName'>
+        <view class='name-list'>联系人:</view>
+        <input placeholder='输入联系人' bindinput="User" value='{{user}}' disabled='{{isEdit}}' placeholder-class='input'></input>
+    </view>
+
+    <view class='shopName' bindtap='getMap' >
+        <input placeholder='输入地址' placeholder-class='input' value='{{map.address || map}}' disabled='true'></input>
+        <view class='name-list' >：选择地址</view>
+    </view>
+
+    <view class='shopName'>
+        <view class='name-list'>联系电话:</view>
+        <input placeholder='输入联系人' placeholder-class='input' value='{{phone}}' disabled='{{isEdit}}' bindinput="phone"></input>
+    </view>
+
+    <textarea placeholder='输入服务项目或地址经营范围'  bindinput="docTx" disabled='{{isEdit}}' value="{{docTx}}"></textarea>
+
+    <view class='add-img'>
+
+        <image class='optImg' src='../../img/shopImg.png' wx:if="{{!shopImg.length}}" bindtap='shopImg' />
+
+        <view class='img-list' wx:for="{{shopImg}}" wx:for-item="src" wx:key="id" wx:for-index="id">
+            <image src='{{src}}' mode="aspectFit" />
+            <text bindtap='delImg' data-src="{{src}}" wx:if="{{!isEdit}}" >X</text>
+        </view>
+
+        <view class='img-list' wx:if="{{!!shopImg.length}}" bindtap='shopImg'>
+            <image src='../../img/optImg.png' mode="aspectFit" wx:if="{{!isEdit}}" />
+        </view>
+    </view>
+
+    <button wx:if="{{ToggleShow}}" bindtap='{{isEdit ? "edit" : "push"}}'>{{isEdit ? '修改' : '确定'}}</button>
+</view>
+
+<!-- 信息弹窗 -->
+<view class='mes-container' wx:if="{{isShow}}" bindtap='mesClose'>
+    <view class='mes-wrap err' >
+        {{mesTx}}
+    </view>
+</view>
+
+
+<!-- 成功  -->
+<view class='suc-container' wx:if="{{isSuc}}">
+    <view class='suc-wrap'>
+                    <view class='suc-header'>
+                        发布成功...
+                    </view>
+
+                    <view class='suc-oper'>
+                        <view class='oper-list' bindtap='back'>返回</view>
+                        <view class='oper-list' bindtap='seePro'>查看</view>
+                    </view>
+    </view>
+</view>
