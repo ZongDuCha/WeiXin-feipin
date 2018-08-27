@@ -14,7 +14,7 @@ function unFile(f, s, m, n, u, p, d, callback) {
     var userInfo = JSON.stringify(getApp().data.userInfo)
 
     wx.uploadFile({
-        url: 'http://localhost:8082/shopList',
+        url: 'http://www.zongdusir.top/shopList',
         filePath: s[i],
         name: 'file',
         formData: {
@@ -85,10 +85,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let id = options.id
-        if(!!id){
+        let id = options.id || undefined;
+        if(!!id && JSON.stringify(id) != '{}'){
             wx:wx.request({
-                url: 'http://localhost:8082/getUserInfo',
+                url: 'http://www.zongdusir.top/getUserInfo',
                 data: { id },
                 method: 'GET',
                 success: res => {
@@ -130,7 +130,7 @@ Page({
             })
         }).then(value => { // 判断用户
             wx.request({
-                url: 'http://localhost:8082/getShop',
+                url: 'http://www.zongdusir.top/getShop',
                 method: 'get',
                 data: {
                     openId: id || value,
@@ -141,7 +141,7 @@ Page({
                     // map: '', // 地址
                     // user: '', // 联系人
                     // phone: '', // 联系电话
-                    // docTx: '', // 店铺描述
+                    // docTx: '', // 店铺描述   
                     // name: '', // 店铺名字
                     if ( !!res.data.length){
                             var RD = res.data[0]
@@ -157,7 +157,6 @@ Page({
                                 cacheFm: RD.shopImg,
                                 cacheImg: RD.shopTions.split(',')
                             })
-
                     }
                 }
             })
@@ -356,7 +355,7 @@ Page({
             mesTx: '正在上传....'
         })
         wx.uploadFile({
-            url: 'http://localhost:8082/shopFm',
+            url: 'http://www.zongdusir.top/shopFm',
             filePath: Array.isArray(f) ? f[0]+[] : f+[],
             name: 'file',
             header: {}, 

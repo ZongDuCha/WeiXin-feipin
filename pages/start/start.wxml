@@ -15,7 +15,7 @@
             display-multiple-items="{{item.img.length == 1 ? '1' : ( item.img.length == 2 ? '2' : (item.img.length >=3 ? '3' : ''))}}" >
 
             <swiper-item class='imgWrap-list' wx:for="{{item.img}}" wx:for-item="img" wx:key="i">
-                <image src='../..{{img}}' mode="aspectFit"></image>
+                <image src='{{img}}' mode="aspectFit"></image>
             </swiper-item>
 
         </swiper>

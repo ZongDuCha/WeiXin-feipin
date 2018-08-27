@@ -28,11 +28,9 @@ function getOpenId(userInfo){ // 根据userInfo信息查询openId
     const sql = `select * from user where userInfo = '${userInfo}'`
     let mise = new Promise( (res, rej) => {
         sel(sql, (e, r) => {
-            console.log(userInfo, r)
             !!r.length ? res(r[0].openId) : rej(e)
         })
     })
-
     return mise;
 }
 
@@ -72,7 +70,6 @@ router.post('/setPro', multipartMiddleware, (q, s) => { // 下单上传 ， 保�
 
     var url = '/proImg/' + q.files.file.path.split('\\')[2]
     imgPath.push(url)
-
     let l = q.body.imgLength
     if (imgPath.length == l) {
         /**
@@ -84,10 +81,7 @@ router.post('/setPro', multipartMiddleware, (q, s) => { // 下单上传 ， 保�
          * 
          * r 地区
          */
-
-
         imgPath = imgPath.toString()
-
         let userInfo = q.body.userInfo
         let phone = q.body.v
         let name = q.body.n
@@ -128,8 +122,6 @@ router.get('/starToggle', (q, s) => { // 取反收藏操作
     })
 })
 
-
-
 router.get('/getPro', (q, s) => { // 获取基本信息
     let id = q.query.id
     let sql = `select * from proInfo where id=${id}`
@@ -143,8 +135,6 @@ router.get('/getPro', (q, s) => { // 获取基本信息
 router.get('/getColl', (q, s) => { // 列表中返回距离排序
     let lat = q.query.lat
     let lng = q.query.lng
-
-
     let list = 7 // 固定显示的条目
     let page = q.query.page // 页数
 
@@ -214,7 +204,7 @@ router.post('/shopList',multipartMiddleware, (q, s) => { // 发布店铺
         let shopName = q.body.n
         let shopUser = q.body.u
         let shopTions = shop
-        let shopMap = JSON.parse(q.body.m).address
+        let shopMap = JSON.parse(q.body.m).address || JSON.parse(q.body.m)
         let shopTx = q.body.d
         let shopPhone = q.body.p
         let shopLat = JSON.parse(q.body.m).latitude
@@ -268,7 +258,6 @@ router.post('/shopList',multipartMiddleware, (q, s) => { // 发布店铺
                         !e ? s.send('ok') : s.send('err');
                     })
             }
-
         })
     } else {
         s.json(url)
@@ -345,13 +334,12 @@ router.get('/getUserMe', (q, s) => {
     })
 })
 
-router.get('/getUserStart', (q, s) => {
+router.get('/getUserStart', (q, s) => { //  获取有收藏的单
     let openid = JSON.parse(q.query.userInfo).openid,
         proItem = [];
     const sql = `select * from proinfo`
     sel(sql, (e, r) => {
         r.forEach( (v, i) => {
-            console.log()
             r[i].star = !!r[i].star ? r[i].star.split(',') : ''
             if( !!(r[i].star+[]) ){
                 r[i].star.forEach( (el, j) => {

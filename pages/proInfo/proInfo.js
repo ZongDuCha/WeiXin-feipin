@@ -69,7 +69,7 @@ Page({
             }
             st = st.toString()
             wx.request({
-                url: 'http://localhost:8082/starToggle',
+                url: 'http://www.zongdusir.top/starToggle',
                 data: {
                     st,
                     id: this.data.ProData.id
@@ -91,7 +91,7 @@ Page({
         })
 
         wx.request({
-            url: 'http://localhost:8082/getPro',
+            url: 'http://www.zongdusir.top/getPro',
             data: {
                 id
             },

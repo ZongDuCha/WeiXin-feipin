@@ -81,27 +81,26 @@ Page({
         this.setData({
             load: '获取数据中.'
         })
-
         getLoca().then( res => {
             const lat = res.result.location.lat
             const lng = res.result.location.lng
             this.setData({
                 currentLoca: res.result.address_component.district
             })
-
             wx.request({
-                url: 'http://localhost:8082/getShopJin',
+                url: 'http://www.zongdusir.top/getShopJin',
                 data: {
                     lat, lng, page: this.data.pageShop
                 },
                 success: res => {
+                    console.log(res)
                     if (res.data + [] == this.data.shopJin + [] || !res.data) {
                         this.setData({
                             load: '已经到底了.'
                         })
                         return false;
                     }
-                    this.data.listShop++
+                    this.data.listShop++;
                     this.setData({
                         shopJin: this.data.shopJin.concat(res.data),
                         load: '已经到底了.'
@@ -122,7 +121,7 @@ Page({
                 currentLoca: res.result.address_component.district
             })
             wx.request({ // 获取数据
-                url: 'http://localhost:8082/getColl',
+                url: 'http://www.zongdusir.top/getColl',
                 data: {
                     lat, lng, page: this.data.page
                 },
@@ -140,7 +139,6 @@ Page({
                     })
 
                     this.data.list++
-
                     this.setData({
                         proItem: this.data.proItem.concat(res.data),
                         load: '已经到底了.'

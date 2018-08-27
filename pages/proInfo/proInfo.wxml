@@ -23,7 +23,7 @@
     </view>
 </view>
 
-<view class='pro-img' bindtap='slide'>
+<view class='pro-img' catchtap='slide'>
     <view class='pro-img-list' wx:for="{{ProData.img}}" wx:key="index" wx:for-item="src">
         <image src='{{src}}' mode="aspectFit"></image>
     </view>

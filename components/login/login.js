@@ -49,7 +49,7 @@ Component({
 
                                 // 将用户信息传入后台
                                 wx.request({
-                                    url: 'http://localhost:8082/setUser',
+                                    url: 'http://www.zongdusir.top/setUser',
                                     method: 'get',
                                     data: {
                                         openId: res.data.openid,
