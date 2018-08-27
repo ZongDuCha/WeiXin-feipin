@@ -3,7 +3,7 @@ var mysql = require('mysql')
 db = mysql.createConnection({
     host: 'localhost', // 连接服务器地址
     user: 'root',  // 连接用户名
-    password: '', // 连接密码
+    password: 'root', // 连接密码
     port: 3306, // 端口号
     database:'feipin' ,// 数据库名称
     multipleStatements: true // 允许执行多条sql语句

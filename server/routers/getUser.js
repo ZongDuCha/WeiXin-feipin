@@ -1,4 +1,4 @@
-var express = require('express'),
+﻿var express = require('express'),
     router = express.Router(),
     {
         sel,
@@ -50,6 +50,7 @@ router.get('/setUser', (q, s, n) => { // 保存用户信息
                 openId,
                 userInfo
             }, (e, r) => {
+                console.log(r)
                 !e ? s.json(true) : s.json(false);
             })
         } else {
@@ -68,7 +69,7 @@ router.get('/setUser', (q, s, n) => { // 保存用户信息
 let imgPath = [] // 存放多张图片路径
 router.post('/setPro', multipartMiddleware, (q, s) => { // 下单上传 ， 保存图片
 
-    var url = '/proImg/' + q.files.file.path.split('\\')[2]
+    var url = 'http://www.zongdusir.top/proImg/' + q.files.file.path.split('\\')[2]
     imgPath.push(url)
     let l = q.body.imgLength
     if (imgPath.length == l) {
@@ -133,6 +134,7 @@ router.get('/getPro', (q, s) => { // 获取基本信息
 
 
 router.get('/getColl', (q, s) => { // 列表中返回距离排序
+	console.log(1);
     let lat = q.query.lat
     let lng = q.query.lng
     let list = 7 // 固定显示的条目
@@ -173,7 +175,7 @@ router.get('/getColl', (q, s) => { // 列表中返回距离排序
 
 
 router.post('/shopFm', multipartMiddleware, (q, s) => { // 返回店铺封面url
-    var url = '/proImg/' + q.files.file.path.split('\\')[2]
+    var url = 'http://www.zongdusir.top/proImg/' + q.files.file.path.split('\\')[2]
     s.send(url)
 })
 
@@ -181,7 +183,7 @@ router.post('/shopFm', multipartMiddleware, (q, s) => { // 返回店铺封面url
 var shop = []
 
 router.post('/shopList',multipartMiddleware, (q, s) => { // 发布店铺
-    var url = '/proImg/' + q.files.file.path.split('\\')[2]
+    var url = 'http://www.zongdusir.top/proImg/' + q.files.file.path.split('\\')[2]
     if(Array.isArray(shop)){
         shop.push(url)
     }else{
