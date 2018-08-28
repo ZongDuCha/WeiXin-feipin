@@ -11,6 +11,16 @@
     </view>
 </view>
 
+<view class='pro-oper'>
+    <view class='pro-back' bindtap='back'>返回</view>
+
+    <view  data-id="{{ProData.id}}" class='pro-star' catchtap='starToggle'>
+        <image src="../../img/{{ProData.star ? 'star-c' : 'star'}}.png"></image> 收藏
+    </view>
+
+    <view class='pro-contact' bindtap='phoneCall'>联系电话</view>
+</view>
+
 <view class='pro-user'>
     <view class='user-img'>
         <image src='{{ProData.userUrl}}'/>
@@ -30,12 +40,3 @@
 </view>
 <view class='pro-bt'>— 已经到底了 —</view>
 
-<view class='pro-oper'>
-    <view class='pro-back' bindtap='back'>返回</view>
-
-    <view  data-id="{{ProData.id}}" class='pro-star' catchtap='starToggle'>
-        <image src="../../img/{{ProData.star ? 'star-c' : 'star'}}.png"></image> 收藏
-    </view>
-
-    <view class='pro-contact' bindtap='phoneCall'>联系电话</view>
-</view>

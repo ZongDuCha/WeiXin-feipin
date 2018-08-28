@@ -25,7 +25,7 @@ function unFile(m, v, d, p, r, n, lat, lng, callback){
     var userInfo = JSON.stringify(getApp().data.userInfo);
 
     wx.uploadFile({
-        url: 'http://www.zongdusir.top/setPro', 
+        url: 'https://www.zongdusir.top/setPro', 
         filePath: m[i],
         name: 'file',
         formData: {
@@ -90,7 +90,7 @@ Page({
         t == 0 ? this.data.map = v : ''
         t == 1 ? this.data.phone = v : ''
         t == 2 ? this.data.name = v : ''
-        t == 2 ? this.data.docText = v : ''
+        t == 3 ? this.data.docText = v : ''
 
         this.setData(this.data)
     },

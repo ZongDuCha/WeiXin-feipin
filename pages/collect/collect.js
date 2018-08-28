@@ -88,7 +88,7 @@ Page({
                 currentLoca: res.result.address_component.district
             })
             wx.request({
-                url: 'http://www.zongdusir.top/getShopJin',
+                url: 'https://www.zongdusir.top/getShopJin',
                 data: {
                     lat, lng, page: this.data.pageShop
                 },
@@ -121,7 +121,7 @@ Page({
                 currentLoca: res.result.address_component.district
             })
             wx.request({ // 获取数据
-                url: 'http://www.zongdusir.top/getColl',
+                url: 'https://www.zongdusir.top/getColl',
                 data: {
                     lat, lng, page: this.data.page
                 },

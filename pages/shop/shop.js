@@ -14,7 +14,7 @@ function unFile(f, s, m, n, u, p, d, callback) {
     var userInfo = JSON.stringify(getApp().data.userInfo)
 
     wx.uploadFile({
-        url: 'http://www.zongdusir.top/shopList',
+        url: 'https://www.zongdusir.top/shopList',
         filePath: s[i],
         name: 'file',
         formData: {
@@ -89,7 +89,7 @@ Page({
         console.log(options);
         if(!!id && JSON.stringify(id) != '{}'){
             wx:wx.request({
-                url: 'http://www.zongdusir.top/getUserInfo',
+                url: 'https://www.zongdusir.top/getUserInfo',
                 data: { id },
                 method: 'GET',
                 success: res => {
@@ -112,28 +112,11 @@ Page({
         })
 
         mise.then(value => {// 获取 openid
-            return new Promise( rev => {
-                    wx.request({
-                        //获取openid接口  
-                        url: 'https://api.weixin.qq.com/sns/jscode2session',
-                        data: {
-                            appid: 'wx7a72546f37bba487',
-                            secret: '317dae4737a4df3d7db6d1a9bf8a9f23',
-                            js_code: value,
-                            grant_type: 'authorization_code'
-                        },
-                        method: 'GET',
-                        success: res => {
-                            rev(res.data.openid )
-                        }
-                    })
-            })
-        }).then(value => { // 判断用户
             wx.request({
-                url: 'http://www.zongdusir.top/getShop',
+                url: 'https://www.zongdusir.top/getShop',
                 method: 'get',
                 data: {
-                    openId: id || value,
+                    openId: id || getApp().data.userInfo.openid,
                 },
                 success: res => {
                     // fm: '../../img/fengmian.png', // 店铺封面
@@ -143,20 +126,20 @@ Page({
                     // phone: '', // 联系电话
                     // docTx: '', // 店铺描述   
                     // name: '', // 店铺名字
-                    if ( !!res.data.length){
-                            var RD = res.data[0]
-                            this.setData({
-                                isEdit: true,
-                                fm: RD.shopImg,
-                                shopImg: RD.shopTions.split(','),
-                                map: RD.shopMap,
-                                user: RD.shopUser,
-                                phone: RD.shopPhone,
-                                docTx: RD.shopTx,
-                                name: RD.shopName,
-                                cacheFm: RD.shopImg,
-                                cacheImg: RD.shopTions.split(',')
-                            })
+                    if (!!res.data.length) {
+                        var RD = res.data[0]
+                        this.setData({
+                            isEdit: true,
+                            fm: RD.shopImg,
+                            shopImg: RD.shopTions.split(','),
+                            map: RD.shopMap,
+                            user: RD.shopUser,
+                            phone: RD.shopPhone,
+                            docTx: RD.shopTx,
+                            name: RD.shopName,
+                            cacheFm: RD.shopImg,
+                            cacheImg: RD.shopTions.split(',')
+                        })
                     }
                 }
             })
@@ -355,7 +338,7 @@ Page({
             mesTx: '正在上传....'
         })
         wx.uploadFile({
-            url: 'http://www.zongdusir.top/shopFm',
+            url: 'https://www.zongdusir.top/shopFm',
             filePath: Array.isArray(f) ? f[0]+[] : f+[],
             name: 'file',
             header: {}, 

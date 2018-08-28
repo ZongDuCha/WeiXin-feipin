@@ -13,7 +13,7 @@ Page({
     onLoad: function (options) {
         var t = !!(options.type - []) ? 'getUserStart' : 'getUserMe'
         wx.request({
-            url: 'http://www.zongdusir.top/'+t,
+            url: 'https://www.zongdusir.top/'+t,
             data: {
                 userInfo: JSON.stringify(getApp().data.userInfo)
             },

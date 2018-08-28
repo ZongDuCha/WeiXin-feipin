@@ -42,7 +42,7 @@ page{
 .list-title{
     min-height:20px;
     padding:0 8px;
-    padding-bottom:8px;
+    padding-bottom:4px;
     border-bottom:1px solid #F3F3F3;
     line-height:20px;
     color:rgba(16, 16, 16, .8);

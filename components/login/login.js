@@ -35,35 +35,18 @@ Component({
                     if (res.code) {
                         // 获取 openid
                         wx.request({
-                            //获取openid接口  
-                            url: 'https://api.weixin.qq.com/sns/jscode2session',
+                            url: 'https://www.zongdusir.top/setUser',
+                            method: 'get',
                             data: {
-                                appid: 'wx7a72546f37bba487',
-                                secret: '317dae4737a4df3d7db6d1a9bf8a9f23',
-                                js_code: res.code,
-                                grant_type: 'authorization_code'
+                                userInfo: getApp().data.userInfo,
+                                code: res.code
                             },
-                            method: 'GET',
                             success: res => {
-                                getApp().data.userInfo.openid = res.data.openid
-
-                                // 将用户信息传入后台
-                                wx.request({
-                                    url: 'http://www.zongdusir.top/setUser',
-                                    method: 'get',
-                                    data: {
-                                        openId: res.data.openid,
-                                        userInfo: getApp().data.userInfo
-                                    },
-                                    success: res => {
-                                        console.log(res)
-                                        this.setData({
-                                            isShow: !res.data
-                                        })
-                                        this.setData(getApp().data)
-                                    }
+                                getApp().data.userInfo.openid = res.data
+                                this.setData({
+                                    isShow: !res.data
                                 })
-                                
+                                this.setData(getApp().data)
                             }
                         })
                     } else {
