@@ -86,6 +86,7 @@ Page({
      */
     onLoad: function (options) {
         let id = options.id || undefined;
+        console.log(options);
         if(!!id && JSON.stringify(id) != '{}'){
             wx:wx.request({
                 url: 'http://www.zongdusir.top/getUserInfo',
@@ -98,7 +99,6 @@ Page({
                 }
             })
         }
-
         let mise = new Promise((resolve, rej) => { // 获取code
             wx.login({
                 success: res => {

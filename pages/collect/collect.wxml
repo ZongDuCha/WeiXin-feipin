@@ -58,7 +58,7 @@
     wx:key="i">
 
     <view class='shop-item'>
-        <image src='../..{{item.shopImg}}' mode="aspectFit"/>
+        <image src='{{item.shopImg}}' mode="aspectFit"/>
 
         <view class='shopInfo'>
             <view class='shopTx'>{{item.shopTx}}</view>

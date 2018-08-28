@@ -175,7 +175,7 @@ router.get('/getColl', (q, s) => { // 列表中返回距离排序
 
 
 router.post('/shopFm', multipartMiddleware, (q, s) => { // 返回店铺封面url
-    var url = 'http://www.zongdusir.top/proImg/' + q.files.file.path.split('\\')[2]
+    var url = 'http://www.zongdusir.top/proImg/' + q.files.file.path.split('\\')[1]
     s.send(url)
 })
 
@@ -183,7 +183,7 @@ router.post('/shopFm', multipartMiddleware, (q, s) => { // 返回店铺封面url
 var shop = []
 
 router.post('/shopList',multipartMiddleware, (q, s) => { // 发布店铺
-    var url = 'http://www.zongdusir.top/proImg/' + q.files.file.path.split('\\')[2]
+    var url = 'http://www.zongdusir.top/proImg/' + q.files.file.path.split('\\')[1]
     if(Array.isArray(shop)){
         shop.push(url)
     }else{
@@ -220,7 +220,7 @@ router.post('/shopList',multipartMiddleware, (q, s) => { // 发布店铺
             if(!!r.length){ // 存在删除图片
                 var allImg = (r[0].shopImg + ',' + r[0].shopTions ).split(',')
                 for(let i in allImg){
-                    fs.unlink('../' + allImg[i],function(e,r){
+                    fs.unlink(allImg[i],function(e,r){
                     })
                 }
                 
@@ -257,6 +257,7 @@ router.post('/shopList',multipartMiddleware, (q, s) => { // 发布店铺
                         creatShop
                     }, (e, r) => {
                         shop = [];
+                        console.log(r)
                         !e ? s.send('ok') : s.send('err');
                     })
             }
@@ -322,6 +323,7 @@ router.get('/getShopJin', (q, s) => { // 列表中返回附近店铺的排序
                 juli ASC limit ${page}, ${list}`
 
     sel(sql, (e, r) => {
+        console.log(r,e)
         !! r.length ? s.json(r) : s.json(e)
     })
 })
