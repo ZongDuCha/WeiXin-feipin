@@ -6,16 +6,26 @@
     background: rgba(0,0,0,.5);
     left:0;top:0;z-index: 999;
 }
-.login-button{
-    width:50%;
-    position:absolute;
+.login-wrap image{
+    position: fixed;
     left:0;
     right:0;
     top:0;
     bottom:0;
     margin:auto;
-    height:40px;
-    font-size:16px;
+}
+button{
+    max-width:70%;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:-110px;
+    margin:auto;
     letter-spacing:1px;
-    text-align: center;
+    text-align:center;
+    height:42px;
+    background:#2cccb6;
+    color:#fff;
+    font-size:17px;
 }

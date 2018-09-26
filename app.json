@@ -1,11 +1,11 @@
 {
     "pages": [
+        "pages/index/index",
         "pages/user/user",
         "pages/proInfo/proInfo",
         "pages/collect/collect",
         "pages/shop/shop",
         "pages/release/release",
-        "pages/index/index",
         "pages/start/start",
         "pages/contact/contact",
         "components/login/login",
@@ -14,13 +14,13 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#4BCE4A",
+        "navigationBarBackgroundColor": "#1890ff",
         "navigationBarTitleText": "爱收哥",
         "navigationBarTextStyle": "black",
         "enablePullDownRefresh": false
     },
     "tabBar": {
-        "color": "#4BCE4A",
+        "color": "#1890ff",
         "selectedColor": "#E51C23",
         "list": [
             {
@@ -31,7 +31,7 @@
             },
             {
                 "pagePath": "pages/collect/collect",
-                "text": "列 表",
+                "text": "发 布",
                 "iconPath": "img/tabbar-2.png",
                 "selectedIconPath": "img/tabbar-2c.png"
             },

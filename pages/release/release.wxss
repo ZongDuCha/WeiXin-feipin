@@ -16,7 +16,7 @@ page {
 }
 
 .suc{
-    background: #4bce4a;
+    background: #1890ff;
 }
 .err{
     background: #e51c23;
@@ -89,8 +89,8 @@ page {
     font-size: 15px;
     padding: 0 15px;
     text-align: center;
-    border-left: 1px solid #4bce4a;
-    color: #4bce4a;
+    border-left: 1px solid #1890ff;
+    color: #1890ff;
 }
 
 .rel-info {
@@ -115,7 +115,7 @@ page {
     width: 70px;
     line-height: 26px;
     flex: none;
-    color: #4bce4a;
+    color: #1890ff;
 }
 
 .info-list textarea {
@@ -179,7 +179,7 @@ page {
 }
 
 .oper-list:nth-child(2) {
-    color: #4bce4a;
+    color: #1890ff;
 }
 
 .picker {

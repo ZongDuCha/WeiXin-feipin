@@ -1,5 +1,8 @@
 {
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true,
     "usingComponents": {
+        "slide": "/components/slide/slide",
         "login": "/components/login/login"
     }
 }

@@ -1,9 +1,11 @@
 <view class='login-wrap' wx:if="{{isShow}}">
-    <button 
-        class='login-button' 
-        open-type="getUserInfo" 
-        lang="zh_CN" 
-        bindgetuserinfo="onGotUserInfo">
-        同意安全登录
-    </button>
+    <view class='login-button'>
+        <image src='https://ohp96o3wl.qnssl.com/FlsYcJg0E8c4RSRyvLVe5QzfVKip'></image>
+        <button 
+            open-type="getUserInfo" 
+            lang="zh_CN" 
+            bindgetuserinfo="onGotUserInfo">
+            {{loginTx}}
+        </button>
+    </view>
 </view>

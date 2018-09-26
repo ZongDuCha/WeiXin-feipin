@@ -1,3 +1,4 @@
+var isLogin = true;
 Component({
     /**
      * 私有数据,组件的初始数据
@@ -5,7 +6,8 @@ Component({
      */
     data: {
         // 弹窗显示控制
-        isShow: true
+        isShow: true,
+        loginTx: '同意安全登录'
     },
 
     /**
@@ -17,7 +19,6 @@ Component({
             this.setData({
                 isShow: !getApp().data.userInfo.nickName
             })
-            console.log(this.data)
         }, 0)
     },
     methods: {
@@ -25,35 +26,41 @@ Component({
          * 公有方法
          */
         onGotUserInfo: function(e) {
-            getApp().data.userInfo = e.detail.userInfo
             this.setData({
-                isShow: false
+                loginTx: '正在登陆中...'
             })
-            wx.login({
-                success: res => {
-                    // 获取code
-                    if (res.code) {
-                        // 获取 openid
-                        wx.request({
-                            url: 'https://www.zongdusir.top/setUser',
-                            method: 'get',
-                            data: {
-                                userInfo: getApp().data.userInfo,
-                                code: res.code
-                            },
-                            success: res => {
-                                getApp().data.userInfo.openid = res.data
-                                this.setData({
-                                    isShow: !res.data
-                                })
-                                this.setData(getApp().data)
-                            }
-                        })
-                    } else {
-                        console.log('登录失败！' + res.errMsg)
+            if (isLogin){
+                getApp().data.userInfo = e.detail.userInfo
+                wx.login({
+                    success: res => {
+                        // 获取code
+                        if (res.code) {
+                            // 获取 openid
+                            wx.request({
+                                url: 'https://www.zongdusir.top/setUser',
+                                method: 'get',
+                                data: {
+                                    userInfo: getApp().data.userInfo,
+                                    code: res.code
+                                },
+                                success: res => {
+                                    getApp().data.userInfo.openid = res.data
+                                    isLogin = false;
+                                    this.setData(getApp().data)
+
+                                    setTimeout(() => {
+                                        this.setData({
+                                            isShow: !res.data
+                                        })
+                                    },100)
+                                }
+                            })
+                        } else {
+                            console.log('登录失败！' + res.errMsg)
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 })

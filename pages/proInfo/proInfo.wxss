@@ -30,7 +30,7 @@ page{
 .pro-phone{
     float:right;
     line-height: 20px;
-    color: rgba(75, 206, 74, 1);
+    color: #1890ff;
     font-size: 14px;
     text-align: right;
     letter-spacing: .5px;
@@ -122,7 +122,7 @@ page{
 }
 .pro-star{
     flex:.4;
-    color:#4BCE4A;
+    color:#4bce4a;
 }
 .pro-star image{
     width:20px;

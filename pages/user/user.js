@@ -16,6 +16,10 @@ Page({
 
         let userInfo = getApp().data.userInfo,
             t;
+        this.setData({
+            userInfo: getApp().data.userInfo,
+            isShow: !getApp().data.userInfo.nickName
+        })
         t = setInterval(() => {
             if (!!userInfo) {
                 clearInterval(t)

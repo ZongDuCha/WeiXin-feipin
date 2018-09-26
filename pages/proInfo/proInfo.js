@@ -99,7 +99,6 @@ Page({
                 var ProData = res.data;
                 ProData.img = ProData.img.split(',')
                 
-                console.log(ProData.userInfo)
                 ProData.userUrl = JSON.parse(ProData.userInfo).avatarUrl
                 ProData.userName = JSON.parse(ProData.userInfo).nickName
                 ProData.creatTime = ProData.creatTime.substr(0,19)

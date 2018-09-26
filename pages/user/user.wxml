@@ -13,22 +13,22 @@
 
 <view class='user-item'>
     <view class='view-item'>
-        标题暂定
+        操作
     </view>
 
     <view class='user-nav'>
         <navigator url='../start/start?type=0' class='user-list'>
-            <image src='../../img/raw_1527951925.png'></image>
+            <image src='https://ohp96o3wl.qnssl.com/FjmYpRSrx9OOBGTvmJSM0LmkcHlC'></image>
             <text>我的下单</text>
         </navigator>
 
         <navigator  url='../start/start?type=1' class='user-list'>
-            <image src='../../img/raw_1527951928.png'></image>
+            <image src='https://ohp96o3wl.qnssl.com/Fm8uBYBU3_pR4m6EpnfwqdTFpnJs'></image>
             <text>我的收藏</text>
         </navigator>
 
         <navigator url='../contact/contact' class='user-list'>
-            <image src='../../img/raw_1527951927.png'></image>
+            <image src='https://ohp96o3wl.qnssl.com/Fqs0kxtDm_nTL_C-hWA6O9HNWuuf'></image>
             <text>联系客服</text>
         </navigator>
     </view>

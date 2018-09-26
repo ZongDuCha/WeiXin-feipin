@@ -11,7 +11,7 @@
             duration="300" 
             bindchange="listenSwiper"
             class='list-imgWrap'
-            indicator-active-color="#4BCE4A"
+            indicator-active-color="#1890ff"
             display-multiple-items="{{item.img.length == 1 ? '1' : ( item.img.length == 2 ? '2' : (item.img.length >=3 ? '3' : ''))}}" >
 
             <swiper-item class='imgWrap-list' wx:for="{{item.img}}" wx:for-item="img" wx:key="i">

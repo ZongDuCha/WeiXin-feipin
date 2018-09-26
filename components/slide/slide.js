@@ -21,7 +21,6 @@ Component({
         isShow: true
     },
     attached(){
-        console.log(1)
     },
     /**
      * 组件的方法列表

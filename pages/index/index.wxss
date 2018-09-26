@@ -1,41 +1,191 @@
 /**index.wxss**/
+
+.swiper-item{
+    position: relative;
+    height:200px;
+}
+.swiper-item image{
+    position:absolute;
+    width:100%;
+    max-height:100%;
+    left:0;top:0;
+}
+.swiper-item .swiper-tx{
+    position:absolute;
+    top:5px;
+    left:5px;
+    z-index:99;
+    color:#000;
+}
 .index-header image{
-    max-width:20px;
-    max-height:23px;
+    max-width:19px;
+    max-height:18px;
     margin:10px 5px;
     float:left;
-    vertical-align:sub;
+    vertical-align:middle;
+    margin-top:6px;
 }
 
 .index-map{
     display:block;
-    line-height:45px;
-    font-size:17px;
+    line-height:30px;
+    font-size:14px;
     letter-spacing:1px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.item{
-    display: flex;
-    margin:45px auto;
-}
-.item-list{
-    flex:1;
+
+.search{
+    position:relative;
+    top:-14px;
     text-align:center;
 }
-.item-list image{
-    width:200rpx;
-    height:200rpx;
-    border-radius: 50%;
-    box-shadow: 0px 0px 25px -2px rgba(37, 249, 36, 1);
+
+.search input{
+    background:#fff;
+    width:65vw;
+    margin:0 auto;
+    border-radius:20px;
+    padding:7px 15px;
+    box-shadow:0 -1px 15px #9baec1;
+    font-size:13px;
+    text-align:left;
 }
-.item-list text{
-    display: block;
-    margin-top:5px;
-    color: rgba(9, 170, 8, 1);
-    font-size: 15px;
+
+/* 列表 */
+.collect-tab{
+    background:#fff;
+    display: flex;
+}
+.tab-list{
     text-align: center;
-    font-family: Arial;
-    letter-spacing: 1px;
+    padding:10px 0;
+    flex:1;
+    font-size: 15px;
+}
+.active{
+    color:#1890ff;
+    position: relative;
+}
+.active:before{
+    content:'';
+    position: absolute;
+    left:0;right:0;bottom:5px;margin:0 auto;
+    background:#1890ff;width:50px;height:2px;
+    border-radius: 10px;
+}
+.col-warp-list{
+    width:95%;
+    background:#fff;
+    margin:10px auto;
+    padding:8px 0;
+    box-shadow:0 0 5px #d9dbdc;
+    border:1px solid #ececec;
+    border-radius:15px;
+}
+.list-title{
+    max-height:34px;
+    padding:0 8px;
+    padding-bottom:8px;
+    border-bottom:1px solid #F3F3F3;
+    line-height:20px;
+    color:rgba(16, 16, 16, .8);
+    font-size:13px;
+    font-weight:600;
+    isplay: -webkit-box;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.list-imgWrap{
+    padding:8px;
+    border-bottom:1px solid #F3F3F3;
+    height:80px;
+    margin-bottom:8px;
+}
+
+.imgWrap-list{
+    width:100px;
+    float:left;
+}
+.imgWrap-list+.imgWrap-list{
+    margin-left:8px;
+}
+.imgWrap-list image{
+    width:100%;
+    height:80px;
+}
+
+.col-user{
+    padding:8px;
+    display: flex;
+}
+
+.user-map{
+    line-height: 20px;
+    color: rgba(99, 128, 234, 1);
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+}
+.user-map image{
+    width:15px;
+    height:20px;
+    vertical-align:sub;
+}
+
+.collect-end{
+    text-align:center;
+    margin-bottom:10px;
+}
+.span{
+    width:30px;
+    height:1px;
+    background:#ddd;
+    margin:0 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.end-text{
+    font-size: 12px;
+    color:#ccc;
+    display:inline-block;
+}
+
+/* 店铺 */
+
+.shop-item{
+    display:flex;
+    margin:15px 10px;
+    overflow:hidden;
+    background:#fff;
+    padding:10px 5px;
+    box-shadow:0 0 6px #d9dbdc;
+    border:1px solid #dddfe0;
+}
+
+.shop image{
+    flex:1;
+    max-width:70px;
+    max-height:70px;
+    border-radius:50%;
+    vertical-align:middle;
+    margin-right: 8px;
+}
+.shopInfo{
+    flex:1;
+    font-size: 14px;
+    line-height: 22px;
+}
+.shopTx{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height:40px;
 }

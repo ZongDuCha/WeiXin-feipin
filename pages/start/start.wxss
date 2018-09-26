@@ -22,14 +22,14 @@ page{
     font-size: 14px;
 }
 .active{
-    color:#4BCE4A;
+    color:#1890ff;
     position: relative;
 }
 .active:before{
     content:'';
     position: absolute;
     left:0;right:0;bottom:5px;margin:0 auto;
-    background:#4BCE4A;width:35px;height:1px;
+    background:#1890ff;width:35px;height:1px;
 }
 
 

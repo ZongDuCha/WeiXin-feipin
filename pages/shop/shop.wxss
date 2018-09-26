@@ -1,6 +1,6 @@
 /* pages/shop/shop.wxss */
 page{
-    background: #4BCE4A;
+    background: #1890ff;
 }
 
 .shop{
@@ -58,9 +58,9 @@ button{
     font-size:16px;
     text-align:center;
     border:0;
-    background:#4BCE4A;
+    background:#1890ff;
     color:#fff;
-    box-shadow:0 0px 15px #4BCE4A;
+    box-shadow:0 0px 15px #1890ff;
 }
 
 
@@ -122,7 +122,7 @@ button{
 }
 
 .suc{
-    background: #4bce4a;
+    background: #1890ff;
 }
 .err{
     background: #e51c23;
@@ -172,7 +172,7 @@ button{
 }
 
 .oper-list:nth-child(2) {
-    color: #4bce4a;
+    color: #1890ff;
 }
 
 .picker {

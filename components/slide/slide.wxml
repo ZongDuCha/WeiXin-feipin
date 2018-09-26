@@ -4,7 +4,7 @@
     <swiper 
         indicator-dots="true"
         indicator-color="#ddd"
-        indicator-active-color="#4BCE4A"
+        indicator-active-color="#1890ff"
         class='swiper-wrap' bindtap='close'>
 
         <block wx:key="*this">

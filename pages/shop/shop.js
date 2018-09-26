@@ -12,7 +12,6 @@ function unFile(f, s, m, n, u, p, d, callback) {
         suc = s.suc ? s.suc : 0, // 上传成功的张数
         err = s.err ? s.err : 0; // 上传失败的张数
     var userInfo = JSON.stringify(getApp().data.userInfo)
-
     wx.uploadFile({
         url: 'https://www.zongdusir.top/shopList',
         filePath: s[i],
@@ -337,14 +336,57 @@ Page({
             isShow: 'true',
             mesTx: '正在上传....'
         })
-        wx.uploadFile({
-            url: 'https://www.zongdusir.top/shopFm',
-            filePath: Array.isArray(f) ? f[0]+[] : f+[],
-            name: 'file',
-            header: {}, 
-            formData: {},
-            success: res => {
-                unFile(f = res.data, s, m, n, u, p, d, res => {
+        var FilePromise = new Promise(function(rej){
+            if (!!Array.isArray(f)) {
+                wx.uploadFile({
+                    url: 'https://www.zongdusir.top/shopFm',
+                    filePath: Array.isArray(f) ? f[0] + [] : f + [],
+                    name: 'file',
+                    header: {},
+                    formData: {},
+                    success: res => {
+                        rej(res.data)
+                    },
+                    fail: res => {
+                        if (!!res.errMsg) {
+                            this.setData({
+                                isShow: 'true',
+                                mesTx: '图片上传失败...请重试'
+                            })
+                            setTimeout(() => {
+                                this.setData({
+                                    isShow: false,
+                                })
+                            }, 2000)
+                        }
+                    },
+                })
+            } else {
+                rej(f+[])
+            }
+        })
+        FilePromise.then(f => {
+            for(let i=0;i<s.length;i++){
+                if (s[i].indexOf('//tmp/') < 0){
+                    store.push(s[i])
+                    s.splice(i,i+1)
+                }
+            }
+            if(s.length < 1){
+                this.onLoad()
+                this.setData({
+                    isEdit: true,
+                    isShow: false,
+                    f: '',
+                    s: '',
+                    m: '',
+                    n: '',
+                    u: '',
+                    p: '',
+                    d: ''
+                })
+            }else{
+                unFile(f, s, m, n, u, p, d, res => {
                     if (res[res.length - 1].data == '"ok"' || res[res.length - 1].data == 'ok') {
                         this.setData({
                             isShow: 'true',
@@ -365,41 +407,28 @@ Page({
                                 d: ''
                             })
                         }, 2000)
-                    }else{
+                    } else {
                         this.setData({
                             isShow: 'false',
                             mesTx: '上传失败，请刷新页面重试'
                         })
                     }
                 })
-            },
-            fail: res => {
-                if (!!res.errMsg) {
-                    this.setData({
-                        isShow: 'true',
-                        mesTx: '上传失败2....'
-                    })
-
-                    setTimeout(() => {
-                        this.setData({
-                            isShow: false,
-                        })
-                    }, 2000)
-                }
-            },
-            complete: res => { },
+            }
+            
         })
 
-        // this.setData({
-        //     isShow: 'true',
-        //     mesTx: '上传失败3....'
-        // })
-
-        // setTimeout(() => {
-        //     this.setData({
-        //         isShow: false,
-        //     })
-        // }, 100000)
+        setTimeout(() => {
+            this.setData({
+                isShow: 'true',
+                mesTx: '网络超时.请重试'
+            })
+            setTimeout(() => {
+                this.setData({
+                    isShow: false,
+                })
+            },3000)
+        }, 1000 * 60 * 5)
     },
     mesClose() { // 关闭
 

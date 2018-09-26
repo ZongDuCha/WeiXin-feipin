@@ -1,77 +1,12 @@
-<!--pages/collect/collect.wxml-->
-
-<!-- 全屏组件 -->
-<slide  img="{{slide}}"/> 
 <login wx:if="{{isShow}}"/>
 
-<view class='collect-header'>
-    <view class='col-map'>
-        <image src='../../img/203-Map.png' />
-        {{currentLoca ? currentLoca : '获取中'}}
+<view class='item'>
+    <view class='item-list' bindtap='toRelease'>
+        <image src='../../img/raw_1527689776.png' />
+        <text>我要下单</text>
     </view>
-    <input placeholder='搜索关键词' placeholder-class="phcolor"></input>
-    <view class='col-ss'>搜 索</view>
-</view>
-
-<view class='collect-tab'>
-    <view class='tab-list {{classItem == 1 ? "active" : ""}}' data-class='{{1}}' bindtap='classToggle'>距离最近</view>
-    <view class='tab-list {{classItem == 2 ? "active" : ""}}' data-class='{{2}}' bindtap='classToggle'>附近店铺</view>
-</view>
-
-<view class='collect-wrap' wx:if="{{classItem == 1}}">
-    
-    <!-- 数据渲染|| -->
-    <view class='col-warp-list' wx:for="{{proItem}}" wx:for-item="item" wx:key="i">
-        <navigator url='../proInfo/proInfo?id={{item.id}}' class='list-title'>{{item.docText}}</navigator>
-
-    <swiper 
-        indicator-dots="true" 
-        duration="300" 
-        bindchange="listenSwiper"
-        class='list-imgWrap'
-        indicator-active-color="#4BCE4A"
-        bindtap='slide'
-        data-img="{{item.img}}"
-        display-multiple-items="{{item.img.length == 1 ? '1' : ( item.img.length == 2 ? '2' : (item.img.length >=3 ? '3' : ''))}}" >
-
-            <swiper-item class='imgWrap-list'wx:for="{{item.img}}" wx:for-item="src" wx:key="i">
-                <image src='{{src}}' mode="aspectFit" ></image>
-            </swiper-item>
-
-    </swiper>
-
-        <view class='user-map'>
-            <image src='../../img/203-Mapc.png' />
-            {{item.map}}
-        </view>
+    <view class='item-list' bindtap='toShop'>
+        <image src='../../img/rarw_123wdeq.png' />
+        <text>我的店铺</text>
     </view>
 </view>
-
-
-
-<navigator 
-    url='../shop/shop?id={{item.id}}' 
-    class='shop' 
-    wx:if="{{classItem == 2}}"
-    wx:for="{{shopJin}}" 
-    wx:for-item="item" 
-    wx:key="i">
-
-    <view class='shop-item'>
-        <image src='{{item.shopImg}}' mode="aspectFit"/>
-
-        <view class='shopInfo'>
-            <view class='shopTx'>{{item.shopTx}}</view>
-            <view class='shopName'>联系人：{{item.shopName}}</view>
-            <view class='shopMap'>{{item.shopMap}}</view>
-        </view>
-    </view>
-
-</navigator>
-
-<view class='collect-end'>
-    <view class='span'></view>
-    <view class='end-text'>{{load}}</view>
-    <view class='span'></view>
-</view>
-

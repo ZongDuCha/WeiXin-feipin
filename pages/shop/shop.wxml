@@ -19,7 +19,7 @@
 
     <view class='shopName'>
         <view class='name-list'>联系电话:</view>
-        <input placeholder='输入联系人' placeholder-class='input' value='{{phone}}' disabled='{{isEdit}}' bindinput="phone"></input>
+        <input placeholder='输入联系电话' placeholder-class='input' value='{{phone}}' disabled='{{isEdit}}' bindinput="phone"></input>
     </view>
 
     <textarea placeholder='输入服务项目或地址经营范围'  bindinput="docTx" disabled='{{isEdit}}' value="{{docTx}}"></textarea>
